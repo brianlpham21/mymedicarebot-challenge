@@ -25,9 +25,9 @@ app.get('/reverse/:string', function(req, res) {
 });
 
 app.post('/url', function(req, res) {
-  const term = req.body.url;
+  const url = req.body.url;
   const method = req.body.method
-  res.send({result: method + ' to ' + term});
+  res.send({result: method + ' to ' + url});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
