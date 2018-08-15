@@ -29,3 +29,6 @@ To run the application:
 ```
 npm start
 ```
+## Screenshot
+
+<img src="/images/screen-shot.png" width="70%">
