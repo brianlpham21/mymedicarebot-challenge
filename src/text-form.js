@@ -33,6 +33,7 @@ class TextForm extends Component {
           <input type="text" name="string" className="input" placeholder="Enter some text here..." required/>
           <button type="submit" className="submit-button text-submit">Reverse It!</button>
         </form>
+        
         <div className="result-section">
           Result: <strong>{this.state.result}</strong>
           <div className="result"></div>

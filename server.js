@@ -1,8 +1,9 @@
 'use strict';
 
 const express = require('express');
-
 const bodyParser = require('body-parser');
+
+const https = require('https');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,8 +27,40 @@ app.get('/reverse/:string', function(req, res) {
 
 app.post('/url', function(req, res) {
   const url = req.body.url;
-  const method = req.body.method
-  res.send({result: method + ' to ' + url});
+  const method = req.body.method;
+
+  if (method === 'get') {
+    https.get(url, (resp) => {
+      let data = '';
+
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      resp.on('end', () => {
+        res.send({result: data})
+      });
+    })
+      .on("error", (err) => {
+        console.log("Error: " + err.message);
+      });
+  }
+  else {
+    https.post(url, (resp) => {
+      let data = '';
+
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      resp.on('end', () => {
+        res.send({result: data})
+      });
+    })
+      .on("error", (err) => {
+        console.log("Error: " + err.message);
+      });
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
