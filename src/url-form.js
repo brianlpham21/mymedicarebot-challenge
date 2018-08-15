@@ -2,11 +2,57 @@ import React, { Component } from 'react';
 import './app.css';
 
 class UrlForm extends Component {
+  state = {
+    result: ''
+  }
+
   urlSubmit(event) {
     event.preventDefault();
 
-    console.log(event.target.url.value)
+    if (event.target.method.value === 'get') {
+      this.callGETApi(event.target.url.value)
+        .then(res => this.setState({result: res.result}))
+        .catch(err => console.log(err));
+    }
+    else {
+      this.callPOSTApi(event.target.url.value)
+        .then(res => this.setState({result: res.result}))
+        .catch(err => console.log(err));
+    }
+
+    const queryTarget = event.target.url;
+    queryTarget.value = '';
+
+    const queryMethod = event.target.method;
+    queryMethod.value = 'get';
   }
+
+  callGETApi = async(link) => {
+    const response = await fetch(`/url`, {
+      method: 'get'
+    });
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+  callPOSTApi = async(link) => {
+    const response = await fetch(`/url`, {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({url: link})
+    });
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
 
   render() {
     return (
@@ -20,7 +66,7 @@ class UrlForm extends Component {
           <button type="submit" className="submit-button url-submit">Submit</button>
         </form>
         <div className="result-section">
-          Result:
+          Result: {this.state.result}
           <div className="result"></div>
         </div>
       </div>
