@@ -1,7 +1,13 @@
+.app {
+  background-color: #FFD289;
+  min-height: 100vh
+}
+
 .app-header {
-  background-color: #222;
-  color: white;
+  background-color: #F4AC32;
+  color: black;
   font-size: 1.5em;
+  font-weight: 700;
   margin-bottom: 50px;
   padding: 20px;
   text-align: center;
@@ -17,14 +23,15 @@
 }
 
 .form-1 {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .input {
+  border: none;
   border-radius: 2px;
   font-size: 1em;
   padding: 10px;
-  width: 400px;
+  width: 60%;
 }
 
 .method-dropdown {
@@ -33,6 +40,8 @@
 }
 
 .submit-button {
+  background-color: #F5B82E;
+  border: none;
   border-radius: 10px;
   font-size: 1em;
   margin-left: 5px;
@@ -41,7 +50,8 @@
 
 .submit-button:hover {
   cursor: pointer;
-  background-color: silver
+  background-color: #FFD131;
+  opacity: 0.8;
 }
 
 .result-section {

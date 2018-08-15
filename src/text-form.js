@@ -34,7 +34,7 @@ class TextForm extends Component {
           <button type="submit" className="submit-button text-submit">Reverse It!</button>
         </form>
         <div className="result-section">
-          Result: {this.state.result}
+          Result: <strong>{this.state.result}</strong>
           <div className="result"></div>
         </div>
       </div>

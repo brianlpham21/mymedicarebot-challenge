@@ -24,14 +24,10 @@ app.get('/reverse/:string', function(req, res) {
   res.send({result: newTerm});
 });
 
-app.get('/url', function(req, res) {
-
-  res.send({result: 'GOTTEN!'});
-});
-
 app.post('/url', function(req, res) {
   const term = req.body.url;
-  res.send({result: 'Posted to ' + term});
+  const method = req.body.method
+  res.send({result: method + ' to ' + term});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

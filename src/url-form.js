@@ -9,16 +9,9 @@ class UrlForm extends Component {
   urlSubmit(event) {
     event.preventDefault();
 
-    if (event.target.method.value === 'get') {
-      this.callGETApi(event.target.url.value)
-        .then(res => this.setState({result: res.result}))
-        .catch(err => console.log(err));
-    }
-    else {
-      this.callPOSTApi(event.target.url.value)
-        .then(res => this.setState({result: res.result}))
-        .catch(err => console.log(err));
-    }
+    this.callApi(event.target.url.value, event.target.method.value)
+      .then(res => this.setState({result: res.result}))
+      .catch(err => console.log(err));
 
     const queryTarget = event.target.url;
     queryTarget.value = '';
@@ -27,25 +20,14 @@ class UrlForm extends Component {
     queryMethod.value = 'get';
   }
 
-  callGETApi = async(link) => {
-    const response = await fetch(`/url`, {
-      method: 'get'
-    });
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
-  callPOSTApi = async(link) => {
+  callApi = async(link, method) => {
     const response = await fetch(`/url`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({url: link})
+      body: JSON.stringify({url: link, method: method})
     });
     const body = await response.json();
 
@@ -66,7 +48,7 @@ class UrlForm extends Component {
           <button type="submit" className="submit-button url-submit">Submit</button>
         </form>
         <div className="result-section">
-          Result: {this.state.result}
+          Result: <strong>{this.state.result}</strong>
           <div className="result"></div>
         </div>
       </div>
