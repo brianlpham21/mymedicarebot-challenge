@@ -10,6 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+        // navigation bar
         <header>
           <div className="app-header">
             <ul className="app-header-items">
@@ -20,13 +21,19 @@ class App extends Component {
           </div>
         </header>
 
+        // main title and first challenge instructions
         <div className="main">
           <Main />
         </div>
 
         <div className="forms-section">
+          // first challenge
           <TextForm />
+
+          // second challenge instructions
           <Instructions />
+
+          // second challenge
           <UrlForm />
         </div>
       </div>

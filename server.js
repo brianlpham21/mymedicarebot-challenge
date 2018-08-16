@@ -18,6 +18,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+// first challenge GET method
 app.get('/reverse/:string', function(req, res) {
   const term = req.params.string;
   const newTerm = term.split('').reverse().join('');
@@ -25,6 +26,7 @@ app.get('/reverse/:string', function(req, res) {
   res.send({result: newTerm});
 });
 
+// second challenge POST method
 app.post('/url', function(req, res) {
   const url = req.body.url;
   const method = req.body.method;
