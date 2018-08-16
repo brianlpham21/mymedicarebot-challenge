@@ -31,6 +31,15 @@ app.post('/url', function(req, res) {
   const url = req.body.url;
   const method = req.body.method;
 
+  const options = {
+    hostname: url,
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  };
+
   if (method === 'get') {
     https.get(url, (resp) => {
       let data = '';
@@ -48,7 +57,7 @@ app.post('/url', function(req, res) {
       });
   }
   else {
-    https.post(url, (resp) => {
+    https.request(options, (resp) => {
       let data = '';
 
       resp.on('data', (chunk) => {

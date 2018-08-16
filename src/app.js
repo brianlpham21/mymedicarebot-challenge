@@ -13,10 +13,11 @@ class App extends Component {
         {/* navigation bar */}
         <header>
           <div className="app-header">
+            <img src='https://www.mymedicarebot.com/mmb/wp-content/uploads/2018/07/lgoooooooo.png' alt="mymedicarebot-logo" className="header-image" />
             <ul className="app-header-items">
               <li><a href="https://www.mymedicarebot.com/" target="_blank" rel="noopener noreferrer">mymedicarebot</a></li>
-              <li><a href="#">about</a></li>
-              <li><a href="#">contact</a></li>
+              <li><a href="https://github.com/brianlpham21/mymedicarebot-challenge">about</a></li>
+              <li><a href="https://github.com/brianlpham21/mymedicarebot-challenge">contact</a></li>
             </ul>
           </div>
         </header>
