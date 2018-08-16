@@ -31,4 +31,4 @@ npm start
 ```
 ## Screenshot
 
-<img src="/images/screen-shot.png" width="70%">
+<img src="/images/screen-shot.png" width="80%">
