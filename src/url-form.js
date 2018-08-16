@@ -38,7 +38,7 @@ class UrlForm extends Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="form form-2">
         <form onSubmit={(event) => this.urlSubmit(event)}>
           <input type="url" name="url" className="input input-2" placeholder="Enter a URL here..." required/>
 
