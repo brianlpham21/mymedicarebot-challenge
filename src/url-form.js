@@ -23,7 +23,7 @@ class UrlForm extends Component {
   callApi = async(link, method) => {
     const response = await fetch(`/url`, {
       method: 'post',
-      headers: {
+      headers: {g
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
