@@ -28,15 +28,14 @@ class TextForm extends Component {
 
   render() {
     return (
-      <div className="form form-1">
+      <div className="form">
         <form onSubmit={(event) => this.textSubmit(event)}>
           <input type="text" name="string" className="input" placeholder="Enter some text here..." required/>
           <button type="submit" className="submit-button text-submit">Reverse It!</button>
         </form>
-        
+
         <div className="result-section">
-          Result: <strong>{this.state.result}</strong>
-          <div className="result"></div>
+          <span className="space-holder">1</span><strong>{this.state.result}</strong>
         </div>
       </div>
     );

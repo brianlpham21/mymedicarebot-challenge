@@ -40,8 +40,8 @@ class UrlForm extends Component {
     return (
       <div className="form">
         <form onSubmit={(event) => this.urlSubmit(event)}>
-          <input type="url" name="url" className="input" placeholder="Enter a URL here..." required/>
-          
+          <input type="url" name="url" className="input input-2" placeholder="Enter a URL here..." required/>
+
           <select name="method" className="method-dropdown">
             <option value="get">GET</option>
             <option value="post">POST </option>
@@ -50,9 +50,8 @@ class UrlForm extends Component {
           <button type="submit" className="submit-button url-submit">Submit</button>
         </form>
 
-        <div className="result-section">
-          Result: <strong>{this.state.result}</strong>
-          <div className="result"></div>
+        <div className="result-section result-section2">
+          <span className="space-holder">2</span><strong>{this.state.result}</strong>
         </div>
       </div>
     );

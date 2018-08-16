@@ -1,29 +1,72 @@
-.app {
-  background-color: #FFD289;
-  min-height: 100vh
+html {
+  background-color: #f4f4f4;
 }
 
-.app-header {
-  background-color: #F4AC32;
-  color: black;
-  font-size: 1.5em;
-  font-weight: 700;
+/* Header Section */
+
+header {
+  width: 100vw;
+  background-color: white;
   margin-bottom: 50px;
-  padding: 20px;
   text-align: center;
 }
 
+.app-header {
+  padding: 10px;
+  width: 800px;
+  text-align: right;
+  display: inline-block;
+}
+
+.app-header-items li {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.app-header-items li a {
+  color: #373737;
+  font-size: 0.9em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.app-header-items li a:hover {
+  opacity: 0.5;
+}
+
+/* Main Section */
+
+.main {
+  text-align: center;
+}
+
+.main-title {
+  color: #373737;
+  font-size: 6em;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.instructions {
+  margin: 25px;
+}
+
+.instructions-text {
+  background-color: #C0B283;
+  color: #373737;
+  padding: 7px 15px;
+}
+
+/* Forms Section */
+
 .forms-section {
   max-width: 800px;
-  margin: auto;
+  margin: 60px auto;
+  text-align: center;
 }
 
 .form {
-  margin: 10px;
-}
-
-.form-1 {
-  margin-bottom: 70px;
+  margin: 10px 10px 70px 10px;
 }
 
 .input {
@@ -34,15 +77,20 @@
   width: 60%;
 }
 
+.input-2 {
+  width: 53%;
+}
+
 .method-dropdown {
   font-size: 1.2em;
   margin-left: 5px;
 }
 
 .submit-button {
-  background-color: #F5B82E;
+  background-color: #C0B283;
   border: none;
   border-radius: 10px;
+  color: white;
   font-size: 1em;
   margin-left: 5px;
   padding: 10px;
@@ -50,10 +98,22 @@
 
 .submit-button:hover {
   cursor: pointer;
-  background-color: #FFD131;
+  background-color: #DCD0C0;
   opacity: 0.8;
 }
 
 .result-section {
+  color: #373737;
   margin: 20px;
+  font-size: 2em;
+  background-color: white;
+  padding: 10px;
+}
+
+.result-section2 {
+  overflow: scroll;
+}
+
+.space-holder {
+  color: white;
 }
