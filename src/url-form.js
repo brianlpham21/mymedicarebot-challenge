@@ -23,7 +23,7 @@ class UrlForm extends Component {
   callApi = async(link, method) => {
     const response = await fetch(`/url`, {
       method: 'post',
-      headers: {g
+      headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
@@ -41,7 +41,7 @@ class UrlForm extends Component {
       <div className="form form-2">
         <form onSubmit={(event) => this.urlSubmit(event)}>
           <input type="url" name="url" className="input input-2" placeholder="Enter a URL here..." required/>
-
+          <input type="text" name="text" className="input input-3" placeholder="Enter POST data (optional)" />
           <select name="method" className="method-dropdown">
             <option value="get">GET</option>
             <option value="post">POST </option>

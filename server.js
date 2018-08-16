@@ -30,15 +30,7 @@ app.get('/reverse/:string', function(req, res) {
 app.post('/url', function(req, res) {
   const url = req.body.url;
   const method = req.body.method;
-
-  const options = {
-    hostname: url,
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  };
+  const postData = req.body.text;
 
   if (method === 'get') {
     https.get(url, (resp) => {
@@ -57,6 +49,15 @@ app.post('/url', function(req, res) {
       });
   }
   else {
+    const options = {
+      hostname: url,
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    };
+
     https.request(options, (resp) => {
       let data = '';
 

@@ -83,7 +83,12 @@ header {
 }
 
 .input-2 {
-  width: 53%;
+  width: 40%;
+}
+
+.input-3 {
+  width: 30%;
+  margin-left: 5px;
 }
 
 .method-dropdown {
