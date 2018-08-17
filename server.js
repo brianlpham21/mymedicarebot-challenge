@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const https = require('https');
+const querystring = require('querystring');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,11 +27,17 @@ app.get('/reverse/:string', function(req, res) {
   res.send({result: newTerm});
 });
 
+app.post('/test', function(req, res) {
+  res.send({hey: 'hey'})
+})
+
 // second challenge POST method
 app.post('/url', function(req, res) {
   const url = req.body.url;
+  const host = url.split('/')[2];
+  const path = url.split('/')[3];
   const method = req.body.method;
-  const postData = req.body.text;
+  const data = req.body.text;
 
   if (method === 'get') {
     https.get(url, (resp) => {
@@ -49,29 +56,44 @@ app.post('/url', function(req, res) {
       });
   }
   else {
+    const postData = querystring.stringify({
+      postData: data
+    });
+
+    // request option
     const options = {
-      hostname: url,
+      host: host,
+      port: 443,
       method: 'POST',
+      path: path,
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': postData.length
       }
     };
 
-    https.request(options, (resp) => {
-      let data = '';
+    // request object
+    const req = https.request(options, (resp) => {
+      let result = '';
+      resp.on('data', function (chunk) {
+        result += chunk;
+      });
+      resp.on('end', function () {
+        res.send({result: result})
+      });
+      resp.on('error', function (err) {
+        console.log(err);
+      })
+    });
 
-      resp.on('data', (chunk) => {
-        data += chunk;
-      });
+    // req error
+    req.on('error', function (err) {
+      console.log(err);
+    });
 
-      resp.on('end', () => {
-        res.send({result: data})
-      });
-    })
-      .on("error", (err) => {
-        console.log("Error: " + err.message);
-      });
+    //send request witht the postData form
+    req.write(postData);
+    req.end();
   }
 });
 
