@@ -16,8 +16,8 @@ class App extends Component {
             <a href="https://www.mymedicarebot.com/" target="_blank" rel="noopener noreferrer"><img src='https://www.mymedicarebot.com/mmb/wp-content/uploads/2018/07/lgoooooooo.png' alt="mymedicarebot-logo" className="header-image" /></a>
             <ul className="app-header-items">
               <li><a href="https://www.mymedicarebot.com/" target="_blank" rel="noopener noreferrer">mymedicarebot</a></li>
-              <li><a href="https://github.com/brianlpham21/mymedicarebot-challenge">about</a></li>
-              <li><a href="https://github.com/brianlpham21/mymedicarebot-challenge">contact</a></li>
+              <li><a href="https://github.com/brianlpham21/mymedicarebot-challenge" target="_blank" rel="noopener noreferrer">github repo</a></li>
+              <li><a href="https://www.linkedin.com/in/blpham/" target="_blank" rel="noopener noreferrer">about me</a></li>
             </ul>
           </div>
         </header>
